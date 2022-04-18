@@ -125,16 +125,34 @@ function App() {
     });
     content = <Article title={title} body={body}></Article>;
     contextControl = (
-      <li>
-        <a
-          href={'/update/' + id}
-          onClick={(event) => {
-            event.preventDefault();
-            setMode('UPDATE');
-          }}>
-          Update
-        </a>
-      </li>
+      <>
+        <li>
+          <a
+            href={'/update/' + id}
+            onClick={(event) => {
+              event.preventDefault();
+              setMode('UPDATE');
+            }}>
+            Update
+          </a>
+        </li>
+        <li>
+          <input
+            type='button'
+            value='Delete'
+            onClick={() => {
+              const newTopics = [];
+              topics.forEach((topic) => {
+                if (topic.id !== id) {
+                  newTopics.push(topic);
+                }
+              });
+              setTopics(newTopics);
+              setMode('WELCOME');
+            }}
+          />
+        </li>
+      </>
     );
   } else if (mode === 'CREATE') {
     content = (
