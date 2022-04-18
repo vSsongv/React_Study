@@ -163,14 +163,12 @@ function App() {
         onUpdate={(title, body) => {
           const newTopics = [...topics];
           const updatedTopic = { id: id, title: title, body: body };
-          newTopics.forEach((topic) => {
+          newTopics.forEach((topic, idx, arr) => {
             if (topic.id === id) {
-              console.log(topic);
-              topic = updatedTopic;
-              console.log(topic);
+              arr[idx] = updatedTopic;
             }
-            console.log(newTopics);
           });
+          console.log(newTopics);
           // for (let i = 0; i < newTopics.length; i++) {
           //   if (newTopics[i].id === id) {
           //     newTopics[i] = updatedTopic;
