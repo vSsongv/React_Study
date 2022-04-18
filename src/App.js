@@ -45,6 +45,31 @@ function Article(props) {
   );
 }
 
+function Create(props) {
+  return (
+    <article>
+      <h2>Create</h2>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          const title = event.target.title.value;
+          const body = event.target.body.value;
+          props.onCreate(title, body);
+        }}>
+        <p>
+          <input type='text' name='title' placeholder='new title' />
+        </p>
+        <p>
+          <textarea name='body' placeholder='new body'></textarea>
+        </p>
+        <p>
+          <input type='submit' value='Create' />
+        </p>
+      </form>
+    </article>
+  );
+}
+
 function App() {
   const [mode, setMode] = useState('WELCOME');
   const [id, setId] = useState(null);
@@ -67,11 +92,13 @@ function App() {
       }
     });
     content = <Article title={title} body={body}></Article>;
+  } else if (mode === 'CREATE') {
+    content = <Create onCreate={(title, body) => {}}></Create>;
   }
   return (
     <div className='App'>
       <Header
-        title='react'
+        title='Web'
         onChangeMode={() => {
           setMode('WELCOME');
         }}></Header>
@@ -82,6 +109,14 @@ function App() {
           setId(_id);
         }}></Nav>
       {content}
+      <a
+        href='/create'
+        onClick={(event) => {
+          event.preventDefault();
+          setMode('CREATE');
+        }}>
+        Create
+      </a>
     </div>
   );
 }
