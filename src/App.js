@@ -200,6 +200,7 @@ function App() {
   return (
     <div className='App'>
       <Header
+        className='header'
         title='Web'
         onChangeMode={() => {
           setMode('WELCOME');
