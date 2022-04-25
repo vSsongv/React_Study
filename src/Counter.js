@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-  constructor(props) {
-    super(props);
-    // state
-    this.state = {
-      number: 0,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // state
+  //   this.state = {
+  //     number: 0,
+  //   };
+  // }
+
+  state = {
+    number: 0,
+  };
 
   render() {
     const { number } = this.state;
