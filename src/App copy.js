@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import MyComponent from './MyComponent';
 import { useState } from 'react';
 
 function Header(props) {
