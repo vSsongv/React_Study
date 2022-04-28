@@ -20,7 +20,11 @@ class validationSample extends Component {
     });
   };
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <input type='password' value={this.state.pwd} />
+      </div>
+    );
   }
 }
 
