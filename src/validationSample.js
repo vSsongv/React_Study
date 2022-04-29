@@ -10,7 +10,7 @@ class validationSample extends Component {
 
   handleChange = (e) => {
     this.setState({
-      pwd: e.target.value,
+      pwd: e.target.value
     });
   };
   handleButton = (e) => {
