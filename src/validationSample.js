@@ -5,7 +5,7 @@ class validationSample extends Component {
   state = {
     pwd: '',
     clicked: false,
-    validate: false,
+    validated: false,
   };
 
   handleChange = (e) => {
@@ -22,7 +22,8 @@ class validationSample extends Component {
   render() {
     return (
       <div>
-        <input type='password' value={this.state.pwd} />
+        <input type='password' value={this.state.pwd} onChange={this.handleChange} className={this.state.clicked ? (this.state.validated ? 'success' : 'failure') : ''} />
+        <button onClick={this.handleButton}>검증하기</button>
       </div>
     );
   }
